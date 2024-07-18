@@ -3,10 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- ada beberapa ukuran yang tidak tersedia contoh ukuran 13, maka dari itu bisa dibuat sendiri ukurannya -->
+    <script>
+        tailwind.config={
+            theme:{
+                extend:{
+                    spacing:{
+                        13: '3.25rem',
+                    },
+                    fontFamily:{
+                        poppins:['Poppins']
+                    }
+                }
+            }
+        }
+    </script>
     <title>Document</title>
 </head>
 <body>
     <h1 class="bg-teal-700 p-4 rounded-2xl font-semibold text-white text-center w-1/2 mx-auto my-6">TEST</h1>
+    <p class="p-13 border-8 border-black font-semibold font-poppins">Coba Ukuran</p>
+
+    <section class="p-7 mt-6 max-w-xl mx-auto border-2">
+        <h2 class="text-4xl font-bold mb-3">Paragraf</h2>
+        <p class="mb-3">
+            Lorem ipsum dolor sit amet consectetur,<a href="#" class="font-bold underline text-red-500">adipisicing elit.</a>Minima temporibus quibusdam delectus modi impedit dolore ea eos! Possimus voluptate facere earum, maiores ea vero eius omnis totam distinctio dignissimos suscipit cum sint excepturi est laboriosam quo nostrum nobis impedit exercitationem itaque deserunt tempora temporibus!
+        </p>
+        <blockquote class="italic mb-3 font-thin text-xl">
+            Eos fugiat eveniet culpa quidem asperiores deserunt error, ab recusandae delectus non nisi, sunt vel consequuntur ipsa a itaque,
+        </blockquote>
+        <p class="">
+         quo sed velit voluptatem sequi consequatur fugit eaque aliquam? Explicabo molestiae culpa enim possimus. Iure, rem impedit error, eos hic consequuntur cupiditate necessitatibus minima, voluptas obcaecati voluptates quae sequi laudantium voluptatibus incidunt tempore nemo nihil sed quasi?</p>
+    </section>
+
+    <section class="p-5 bg-gradient-to-r from-orange-500 via-green-500 to-blue-600 mx-auto w-[600px] my-7 text-center text-white font-bold text-xl h-[200px]">
+        Gradient
+
+        <h1 class="p-1 text-4xl bg-gradient-to-r from-blue-600 to-red-600 bg-clip-text text-transparent">Penerapan Dengan Text</h1>
+    </section>
 </body>
 </html>
