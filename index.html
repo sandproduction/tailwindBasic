@@ -10,6 +10,7 @@
     <!-- ada beberapa ukuran yang tidak tersedia contoh ukuran 13, maka dari itu bisa dibuat sendiri ukurannya -->
     <script>
         tailwind.config={
+        darkMode:'class',
             theme:{
                 extend:{
                     spacing:{
@@ -17,14 +18,29 @@
                     },
                     fontFamily:{
                         poppins:['Poppins']
+                    },
+                    animation:{
+                        'spin-slow': 'spin 3s linear',
+                        'goyang': 'goyang 1s ease-in-out infinite'
+                    },
+                    keyframes:{
+                        goyang:{
+                            '0%, 100%':{ transform: 'skew(-3deg)'},
+                            '50%': {transform: 'skew(3deg)'}
+                        }
                     }
                 }
             }
         }
     </script>
     <title>Document</title>
+    <style type="text/tailwindcss">
+        #toggle:checked ~ label div.toggle-circle{
+            @apply translate-x-4;
+        }
+    </style>
 </head>
-<body>
+<body class="dark:bg-slate-800 dark:text-white">
     <h1 class="bg-teal-700 p-4 rounded-2xl font-semibold text-white text-center w-1/2 mx-auto my-6">TEST</h1>
     <p class="p-13 border-8 border-black font-semibold font-poppins">Coba Ukuran</p>
 
@@ -45,5 +61,71 @@
 
         <h1 class="p-1 text-4xl bg-gradient-to-r from-blue-600 to-red-600 bg-clip-text text-transparent">Penerapan Dengan Text</h1>
     </section>
+    <!-- bg-color dengan hex code -->
+    <section class="w-1/2 h-[200px] bg-[#bebe23] mx-auto mt-6"></section>
+
+    <div class="w-1/2 h-[300px] bg-purple-500 mx-auto my-7 bg-no-repeat bg-contain bg-center overflow-y-scroll bg-fixed" style="background-image: url('gacor\ sponsbob.png');">
+        <p class="font-semibold text-slate-600">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed quas perspiciatis nostrum magni explicabo cupiditate consectetur cumque rerum, rem aperiam facilis temporibus molestias ipsa natus architecto, doloremque incidunt dolores hic inventore delectus magnam eius ipsum. Quisquam cupiditate inventore illum pariatur illo ipsa maiores aperiam voluptatibus voluptas nesciunt cum molestias suscipit, incidunt deserunt veritatis beatae ex obcaecati doloribus a, eligendi ipsam. Ducimus saepe, molestias voluptatibus natus quis maxime, quisquam blanditiis officia nisi, numquam beatae illum eius repellendus nobis enim recusandae. Veritatis maiores, nihil quis culpa amet inventore, nostrum accusantium voluptates tempore distinctio ex dignissimos maxime cum quae quo deleniti nemo iste?</p>
+    </div>
+
+    <div class="w-[500px] h-[300px] mx-auto my-6 bg-indigo-800 bg-no-repeat bg-cover bg-center shadow-lg shadow-purple-600 overflow-hidden bg-blend-darken" style="background-image: url('chinese\ beaver\ meme.png');">
+        <!-- <div class="w-full h-full bg-yellow-500 mix-blend-overlay"></div> -->
+    </div>
+    
+    <div class="w-[500px] h-[300px] mx-auto my-6 bg-indigo-800 bg-no-repeat bg-cover bg-center shadow-lg shadow-yellow-600 overflow-hidden brightness-200 flex" style="background-image: url('chinese\ beaver\ meme.png');">
+        <div class="w-[200px] h-[200px] rounded-full bg-slate-500/30 m-auto backdrop-blur-sm"></div>
+    </div>
+
+    <hr class="my-16">
+    
+    <div class="flex justify-center">
+        <span class="text-sm mr-2">Light</span>
+        <input type="checkbox" name="" id="toggle" class="hidden">
+        <label for="toggle">
+            <div class="w-9 h-5 bg-slate-500 rounded-full flex items-center p-0.5 cursor-pointer">
+                <div class="w-4 h-4 bg-white rounded-full toggle-circle"></div>
+            </div>
+        </label>
+        <span class="text-sm ml-2">Dark</span>
+    </div>
+    
+    <section class="w-full mb-12">
+        <button class="bg-purple-600 text-white px-6 py-2 mx-auto block rounded-full hover:bg-green-600 active:bg-blue-600 focus:ring focus:ring-red-600">Simpan</button>
+    </section>
+
+    <div class="w-[300px] h-[200px] my-10 mx-auto shadow-lg border  rounded-xl font-poppins p-6 hover:bg-cyan-700 group">
+        <h1 class="font-bold mb-3 text-lg group-hover:text-white">Hallo</h1>
+        <p class="group-hover:text-white selection:bg-indigo-300 selection:text-black first-line:uppercase first-line:tracking-wide first-letter:text-5xl first-letter:float-left first-letter:mr-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ipsa, illo dolorem voluptates</p>
+    </div>
+    
+    <div class="w-[300px] p-6 my-10 mx-auto shadow-lg border  rounded-xl font-poppins">
+        <label for="email" class="block font-semibold mb-1 mx-1 after:content-['*'] after:text-red-600">
+            Email
+        </label>
+        <input type="email" id="email" placeholder="masukkan email" class="px-3 py-2 border shadow rounded w-full block text-sm placeholder:text-green-600 focus:outline-none focus:ring-1 focus:ring-green-600 focus:border-green-700 invalid:text-red-600 invalid:focus:ring-red-600 invalid:focus:border-red-700 peer">
+
+        <p class="text-sm text-red-700 m-2 text-center invisible peer-invalid:visible">Email Tidak Valid</p>
+    </div>
+
+    <hr class="my-16"/>
+
+    <div class="w-40 h-40 bg-red-500 mx-auto rounded-lg shadow-lg hover:rotate-45 transition hover:bg-purple-500 origin-top-right"></div>
+    
+    <div class="w-40 h-40 mt-[40px] bg-blue-500 mx-auto group">
+        <div class="w-full h-full bg-green-500 rounded-lg shadow-lg group-hover:rotate-90 transition group-hover:bg-purple-500 origin-top-right duration-1000"></div>
+    </div>
+    
+    <div class="w-40 h-40 mt-[30px] bg-red-500 mx-auto rounded-lg shadow-lg animate-goyang "></div>
+
+    <div class="mb-60"></div>
+
+    <script>
+        const ck = document.querySelector('#toggle')
+        const html = document.querySelector('html')
+
+        ck.addEventListener('click', function(){
+            ck.checked ? html.classList.add('dark') : html.classList.remove('dark')
+        })
+    </script>
 </body>
 </html>
